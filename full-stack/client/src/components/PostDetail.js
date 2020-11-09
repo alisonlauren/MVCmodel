@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
-import { Dimmer, Header, Image, Loader, Segment, Modal } from 'semantic-ui-react';
+import { Dimmer, Header, Image, Loader, Segment } from 'semantic-ui-react';
 import textImage from '../short-paragraph.png';
 
 export default function PostDetail() {
@@ -31,22 +31,11 @@ export default function PostDetail() {
             <Header as="h1">{post.title}</Header>
             <Segment vertical >
                 <Header size='small'>Author: {post.author}</Header>
-                {post.content.split('\n').map(paragraph => {
-                    return <p>{paragraph}</p>
-                }) }
+                {post.content.split('\n').map((paragraph, i) => {
+                    return <p key={i}>{paragraph}</p>
+                })}
                 <Link to="/">&larr; Back</Link>
             </Segment>
-            <Modal
-                trigger={<Button>Add New Post</Button>}
-            >
-            <Modal.Content>
-                FORM TBD
-            </Modal.Content>
-            <Modal.Actions>
-                <Button>Cancel</Button>
-                <Button positive>Submit</Button>
-            </Modal.Actions>
-            </Modal>
         </>
     )
 }

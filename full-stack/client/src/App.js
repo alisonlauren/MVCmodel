@@ -3,7 +3,7 @@ import Posts from './components/Posts';
 import { Container, Header, Segment } from 'semantic-ui-react'
 import { Link, Route, Switch } from 'react-router-dom';
 import PostDetail from './components/PostDetail';
-import Comments from './components/Comments'
+
 
 function App() {
 
@@ -13,7 +13,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Posts} />
           <Route path="/post/:postId" component={PostDetail} />
-          <Comments />
+          
           {/* Fallback Page - 404 */}
           <Route>
             <Segment vertical textAlign="center">
